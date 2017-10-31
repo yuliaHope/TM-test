@@ -1,0 +1,49 @@
+@import 'bootstrap.min.css';
+@import 'common.scss';
+.events {
+    .header {
+        font-size: xx-large;
+        line-height: 2rem;
+        margin: 0;
+        padding: 0.5rem;
+        text-align: center;
+        background-color: midnightblue;
+        color: white;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 3rem;
+        z-index: 10;
+    }
+    &-list {
+        position: relative;
+        top: 3rem;
+        left: 0;
+        margin: 1rem auto;
+        padding: 0.5rem;
+        list-style: none;
+        width: 70%;
+        &-item {
+            cursor: pointer;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid lightgray;
+            .date {
+                width: 5.5rem;
+            }
+            img {
+                max-height: 8rem;
+            }
+        }
+    }
+}
+
+.event-details {
+    &-header {
+        height: 10rem;
+    }
+    .attraction-item {
+        margin-left: 2rem;
+    }
+}
