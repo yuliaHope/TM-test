@@ -46,7 +46,7 @@ class DetailsInfo extends Component {
                 <div>Price: &nbsp;
                     <Currency
                         currency={defaultCurrency}
-                        quantity={price.min} pattern="##,###!" /> - 
+                        quantity={price.min} pattern="##,###!" /> -
                         <Currency
                         currency={defaultCurrency}
                         quantity={price.max} pattern="##,###!" />
