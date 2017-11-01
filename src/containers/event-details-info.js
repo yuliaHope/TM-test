@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
 import { AVAILABLE_SEATS } from '../graphql/available-seats';
+import Currency from 'react-currency-formatter';
 
 class DetailsInfo extends Component {
     renderAttractionsList() {
@@ -15,7 +16,7 @@ class DetailsInfo extends Component {
     }
 
     renderAvailableSeats() {
-        if(this.props.error) {
+        if (this.props.error) {
             return <ErrorMessage message='Error loading available seats.' />
         }
         if (this.props.loading) {
@@ -24,7 +25,7 @@ class DetailsInfo extends Component {
             );
         }
         return (
-            <div className="container">
+            <div>
                 <div>Available: {this.props.availableSeats.count}</div>
                 <div>Total: {this.props.availableSeats.total}</div>
             </div>
@@ -32,11 +33,18 @@ class DetailsInfo extends Component {
     }
 
     render() {
+        const price = {
+            min: 100,
+            max: 500,
+        };
         return (
-            <div className="container">
+            <div className="details-info container">
                 <ul>
                     Attractions: {this.renderAttractionsList()}
                 </ul>
+                <div>Price: &nbsp;
+                    <Currency quantity={price.min} pattern="##,###!" /> - <Currency quantity={price.max} pattern="##,###!" />
+                </div>
                 {this.renderAvailableSeats()}
             </div>
         );
