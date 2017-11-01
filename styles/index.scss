@@ -42,6 +42,9 @@
 .event-details {
     &-header {
         height: 10rem;
+        img {
+            max-height: 10rem;
+        }
     }
     .attraction-item {
         margin-left: 2rem;
