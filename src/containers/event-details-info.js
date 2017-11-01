@@ -37,13 +37,19 @@ class DetailsInfo extends Component {
             min: 100,
             max: 500,
         };
+        const defaultCurrency = "USD"
         return (
             <div className="details-info container">
                 <ul>
                     Attractions: {this.renderAttractionsList()}
                 </ul>
                 <div>Price: &nbsp;
-                    <Currency quantity={price.min} pattern="##,###!" /> - <Currency quantity={price.max} pattern="##,###!" />
+                    <Currency
+                        currency={defaultCurrency}
+                        quantity={price.min} pattern="##,###!" /> -
+                        <Currency
+                        currency={defaultCurrency}
+                        quantity={price.max} pattern="##,###!" />
                 </div>
                 {this.renderAvailableSeats()}
             </div>
