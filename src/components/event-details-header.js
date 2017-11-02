@@ -1,7 +1,18 @@
 import React from 'react';
 import dateFormat from 'dateformat';
+import { shape, arrayOf, instanceOf, object, string } from 'prop-types';
 
-const DetailsHeader = (props) => {
+
+DetailsHeader.propTypes = {
+        event: shape({
+            images: arrayOf(shape({url: string})),
+            name: string,
+            localStartDate: string,
+            venue: shape({city: string}),
+        }).isRequired,
+}
+
+function DetailsHeader(props) {
     return (
         <div className="event-details-header container">
             <img src={props.event.images[0].url} className="col-sm-3 centrate" />

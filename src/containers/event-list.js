@@ -12,7 +12,7 @@ class EventList extends Component {
         return this.props.events.map((event) => {
             return (
                 <li className="events-list-item row"
-                    onClick={() => { this.selectEvent(event) }}
+                    onClick={() => this.selectEvent(event)}
                     key={event.id}>
                     <img src={event.images[0].url} className="col-sm-3" />
                     <div className="col-sm-7">
@@ -23,6 +23,11 @@ class EventList extends Component {
                 </li>
             );
         });
+    }
+
+    selectEvent(event) {
+        this.props.selectEvent(event);
+        Router.push('/details');
     }
 
     render() {
@@ -39,11 +44,6 @@ class EventList extends Component {
                 {this.renderList()}
             </ul>
         );
-    }
-
-    selectEvent(event) {
-        this.props.selectEvent(event);
-        Router.push('/details');
     }
 }
 

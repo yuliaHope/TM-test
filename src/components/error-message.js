@@ -1,13 +1,8 @@
-export default ({message}) => (
+import stylesheet from '../../styles/index.scss';
+
+export default ({ message }) => (
   <aside>
     {message}
-    <style jsx>{`
-      aside {
-        padding: 1.5em;
-        font-size: 14px;
-        color: white;
-        background-color: red;
-      }
-    `}</style>
+    <style dangerouslySetInnerHTML={{ __html: stylesheet }} ></style>
   </aside>
 )

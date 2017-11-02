@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
 import { AVAILABLE_SEATS } from '../graphql/available-seats';
+import { shape, arrayOf, object, string } from 'prop-types';
 
 class DetailsInfo extends Component {
+    static propTypes = {
+        event: shape({
+            attractions: arrayOf(shape({name: string})),
+        }).isRequired,
+    }
+
     renderAttractionsList() {
         return this.props.event.attractions.map((attraction) => {
             return (
@@ -15,10 +22,10 @@ class DetailsInfo extends Component {
     }
 
     renderAvailableSeats() {
-        if(this.props.error) {
+        if (this.props.error) {
             return <ErrorMessage message='Error loading available seats.' />
         }
-        if (this.props.loading) {
+        if (this.props.seatsLoading) {
             return (
                 <div>Loading available seats...</div>
             );
@@ -45,7 +52,7 @@ class DetailsInfo extends Component {
 
 const mapResultsToProps = ({ data: { loading, availableSeats, error } }) => ({
     error,
-    loading,
+    seatsLoading: loading,
     availableSeats: availableSeats ? availableSeats[0] : availableSeats,
 });
 
