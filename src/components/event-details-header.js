@@ -18,7 +18,7 @@ function DetailsHeader(props) {
             <img src={props.event.images[0].url} className="col-sm-3 centrate" />
             <div className="col-sm-9 centrate">
                 <p>{props.event.name}</p>
-                <span>{dateFormat(props.event.localStartDate, 'ddd, mmm d')} </span>
+                <span>{dateFormat(new Date(props.event.localStartDate), 'ddd, mmm d')} </span>
                 <span>{props.event.venue.city}</span>
             </div>
         </div>

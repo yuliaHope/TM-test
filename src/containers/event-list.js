@@ -19,7 +19,7 @@ class EventList extends Component {
                         <p >{event.name}</p>
                         <p>{event.venue.city}</p>
                     </div>
-                    <div className="date col-sm-2">{dateFormat(event.localStartDate, 'ddd, mmm d')}</div>
+                    <div className="date col-sm-2">{dateFormat(new Date(event.localStartDate), 'ddd, mmm d')}</div>
                 </li>
             );
         });
